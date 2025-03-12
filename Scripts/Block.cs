@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Block : MonoBehaviour
@@ -21,6 +22,9 @@ public class Block : MonoBehaviour
         Empty,
         Obtain
     };
+
+    public TextMeshProUGUI text;
+
     public BlockType Type
     {
         get;
@@ -85,15 +89,16 @@ public class Block : MonoBehaviour
     {
         targetPiece.transform.transform.position = movePiece.transform.position + new Vector3(0, 0, -0.2f);
     }
-    public void AddBlock(GameObject blockSelectRev)
+    public void SetValue(int value)
     {
-        GameObject findTail = blockSelectRev;
-        while (findTail.transform.childCount > 0)
-            findTail = findTail.transform.GetChild(0).gameObject;
-        Debug.Log("FindTail " + findTail.name +"  with select " + blockSelectRev +"  Tail2Tail " + gameObject.name);
-
-        gameObject.transform.parent = findTail.transform;
-        blockSelectRev.transform.position = gameObject.transform.position + new Vector3(0, 0, -0.2f);
+        if (value > 0)
+        {
+            text.gameObject.SetActive(true);
+            text.text = value.ToString();
+        }
+        else
+        {
+            text.gameObject.SetActive(false);
+        }
     }
-
 }

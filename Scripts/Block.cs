@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    [SerializeField]
+    private SpriteRenderer sprite;
     public enum RotateDirection
     {
         Left,
@@ -99,6 +101,70 @@ public class Block : MonoBehaviour
         else
         {
             text.gameObject.SetActive(false);
+            if (value > 512)
+            {
+                text.fontSize = 4;
+            }
+            else if (value > 64)
+            {
+                text.fontSize = 5;
+            }
         }
+        SetColor(value);
+    }
+
+    public void SetColor(int value)
+    {
+        Color c = sprite.color;
+        if (value <= 0)
+        {
+            c = new Color(0.7f, 0.68f, 0.68f, 1);
+        }
+        if (value == 2)
+        {
+            c = new Color(1f, 0.92f, 0.81f, 1);
+        }
+        if (value == 4)
+        {
+            c = new Color(0.97f, 0.88f, 0.73f, 1);
+        }
+        if (value == 8)
+        {
+            c = new Color(1f, 0.75f, 0.35f, 1);
+        }
+        if (value == 16)
+        {
+            c = new Color(1f, 0.65f, 0.4f, 1);
+        }
+        if (value == 32)
+        {
+            c = new Color(1f, 0.55f, 0.4f, 1);
+        }
+        if (value == 64)
+        {
+            c = new Color(1f, 0.3f, 0.27f, 1);
+        }
+        if (value == 128)
+        {
+            c = new Color(1f, 0.93f, 0.53f, 1);
+        }
+        if (value == 256)
+        {
+            c = new Color(1f, 0.88f, 0.51f, 1);
+        }
+        if (value == 512)
+        {
+            c = new Color(1f, 0.85f, 0.36f, 1);
+        }
+        if (value == 1024)
+        {
+            c = new Color(1f, 0.85f, 0.36f, 1);
+        }
+        if (value == 2048)
+        {
+            c = new Color(1f, 0.85f, 0.36f, 1);
+        }
+        sprite.color = c;
+
     }
 }

@@ -139,7 +139,7 @@ public class GameController : MonoBehaviour
             {
                 GameObject blockObject = Instantiate(levelSetting.PiecePrefabs[0], new Vector3(i * 2f ,j * 2f), Quaternion.Euler(0, 0, 0));
                 blockObject.name += "_" + i + "_" + j;
-                blockObject.transform.localScale = Vector3.one * 1.5f;
+                blockObject.transform.localScale = Vector3.one * 2f;
                 blockObject.transform.Find("sprite").GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
                 boardItem[i, j] = blockObject.GetComponent<Block>();
                 boardItem[i, j].Coordinates = new Vector2(i, j);
